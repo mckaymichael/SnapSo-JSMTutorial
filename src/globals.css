@@ -228,7 +228,7 @@
 
   /* Right Sidebar */
   .rightsidebar {
-    @apply hidden xl:flex px-6 py-10 flex-col justify-between w-full max-w-[465px] bg-dark-2;
+    @apply hidden xl:flex px-6 py-10 flex-col w-full max-w-[465px] bg-dark-2;
   }
 
   /* Post Card */
