@@ -47,7 +47,6 @@ const PostStats = ( { post, userId }: PostStatsProps) => {
     const handleSavePost = (e: React.MouseEvent) => {
         e.stopPropagation();
 
-
         if(savedPostRecord) {
             setIsSaved(false);
             deleteSavedPost(savedPostRecord.$id);
@@ -78,7 +77,6 @@ const PostStats = ( { post, userId }: PostStatsProps) => {
                 src={isSaved 
                 ? "/assets/icons/saved.svg" 
                 : "/assets/icons/save.svg"}
-                
                 alt='like'
                 width={20}
                 height={20}
