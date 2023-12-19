@@ -1,17 +1,30 @@
-import React from 'react'
-import { Button } from '../ui/button'
+import { Models } from "appwrite";
+import { Link } from "react-router-dom";
 
-const UserCard = () => {
+import { Button } from "../ui/button";
+
+type UserCardProps = {
+  user: Models.Document;
+};
+
+const UserCard = ({ user }: UserCardProps) => {
+
   return (
-    <>
-    <div className='w-48 h-48 border border-dark-4 rounded-[20px] flex flex-col justify-center items-center bg-dark-2'>
-        <img src="/assets/icons/profile-placeholder.svg" alt="" className='w-[54px] h-[54px]' />
-        <h2 className="mt-2.5 small-semibold">John Doe</h2>
-        <p className="tiny-medium mt-0.5 text-light-3 mb-3">Followed by jsmastery</p>
-        <Button className='shad-button_primary py-1.5 px-[18px]'>Follow</Button>
-    </div>
-    </>
-  )
-}
+        <Link to={`/profile/${user.$id}`} className="user-card">
+          <img
+            src={ user.imageUrl || "/assets/icons/profile-placeholder.svg"}
+            alt="profile image"
+            className="rounded-full w-14 h-14"
+          />
+          <h2 className="base-medium text-light-1 text-center line-clamp-1">{user.name}</h2>
+          <p className="small-regular text-light-3 text-center line-clamp-1">
+            @{user.username}
+          </p>
+          <Button className="shad-button_primary px-5">
+            Follow
+          </Button>
+        </Link>
+  );
+};
 
-export default UserCard
+export default UserCard;
