@@ -68,7 +68,7 @@ export const useLikePost = () => {
             })
         }
     })
-}
+};
 
 export const useSavePost = () => {
     const queryClient = useQueryClient();
@@ -87,7 +87,7 @@ export const useSavePost = () => {
             })
         }
     })
-}
+};
 
 export const useDeleteSavedPost = () => {
     const queryClient = useQueryClient();
@@ -106,14 +106,14 @@ export const useDeleteSavedPost = () => {
             })
         }
     })
-}
+};
 
 export const useGetCurrentUser = () => {
     return useQuery({
         queryKey: [QUERY_KEYS.GET_CURRENT_USER],
         queryFn: getCurrentUser
     })
-}
+};
 
 export const useGetPostById = (postId: string) => { 
     return useQuery({
@@ -121,7 +121,7 @@ export const useGetPostById = (postId: string) => {
         queryFn: () => getPostById(postId),
         enabled: !!postId
     })
-}
+};
 
 export const useUpdatePost = () => { 
     const queryClient = useQueryClient();
@@ -134,7 +134,7 @@ export const useUpdatePost = () => {
             })
         }
     })
-}
+};
 
 export const useDeletePost = () => { 
     const queryClient = useQueryClient();
@@ -147,7 +147,7 @@ export const useDeletePost = () => {
             })
         }
     })
-}
+};
 
 export const useGetPosts = () => {
     return useInfiniteQuery({
@@ -161,9 +161,9 @@ export const useGetPosts = () => {
             const lastId = lastPage.documents[lastPage.documents.length - 1].$id;
 
             return lastId;
-        }
-    })
-}
+        },
+    });
+};
 
 export const useSearchPosts = (searchTerm: string) => {
     return useQuery({
@@ -171,14 +171,14 @@ export const useSearchPosts = (searchTerm: string) => {
         queryFn: () => searchPosts(searchTerm),
         enabled: !!searchTerm
     })
-}
+};
 
 export const useGetUsers = (limit?: number) => {
     return useQuery({
         queryKey: [QUERY_KEYS.GET_USERS],
         queryFn: () => getUsers(limit),
     })
-}
+};
 
 export const useGetUserById = (userId: string) => {
     return useQuery({
